@@ -1,0 +1,73 @@
+# ...existing code...
+
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+
+# Chroma DB persistence (project-level or nested)
+chroma_db/
+**/chroma_db/
+
+# Environment files / secrets
+.env
+.env.*
+*.env
+secrets.json
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.pytest_cache/
+.mypy_cache/
+pip-wheel-metadata/
+*.egg-info/
+
+# Testing / coverage
+coverage/
+.coverage
+htmlcov/
+
+# Build / packaging
+build/
+dist/
+.eggs/
+*.egg
+*.whl
+
+# Logs
+*.log
+logs/
+
+# Node/npm
+node_modules/
+.pnp
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Databases
+*.sqlite3
+*.db
+*.sqlite
+
+#repos
+**/repos/
