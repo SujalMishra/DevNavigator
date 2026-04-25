@@ -208,15 +208,6 @@ POST /ask
 
 ---
 
-## ⚠️ Current Limitations
-
-* Basic prompt quality
-* No chat memory
-* Small local LLM (limited reasoning)
-* No UI yet
-
----
-
 ## 🔮 Future Improvements
 
 * Better LLM (Mistral / LLaMA via Ollama)
@@ -224,15 +215,6 @@ POST /ask
 * Multi-repo support
 * Frontend UI (React)
 * Code navigation + highlighting
-
----
-
-## 💡 Why This Project Stands Out
-
-* Real-world AI system (not a toy chatbot)
-* End-to-end pipeline (backend + ML)
-* Production-style architecture
-* Highly relevant for **AI SDE roles**
 
 ---
 
