@@ -3,14 +3,15 @@ from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 
 # Load embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = None
 
+def get_model():
+    global model
+    if model is None:
+        model = SentenceTransformer("all-MiniLM-L6-v2")
+    return model
 # Initialize DB
-client = chromadb.Client(
-    Settings(
-        persist_directory="chroma_db"
-    )
-)
+client = chromadb.PersistentClient(path="chroma_db")
 
 collection = client.get_or_create_collection(name="repo_chunks")
 
@@ -25,7 +26,7 @@ def store_chunks(chunks_data):
         metadatas.append({"file_path": item["file_path"]})
         ids.append(str(i))
 
-    embeddings = model.encode(documents).tolist()
+    embeddings = get_model().encode(documents)
 
     collection.add(
         documents=documents,
@@ -33,3 +34,13 @@ def store_chunks(chunks_data):
         ids=ids,
         embeddings=embeddings
     )
+
+def query_chunks(query: str, n_results=5):
+    query_embedding = get_model().encode([query]).tolist()
+
+    results = collection.query(
+        query_embeddings=query_embedding,
+        n_results=n_results
+    )
+
+    return results
